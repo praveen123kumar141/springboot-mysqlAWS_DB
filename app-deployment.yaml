@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-k8s-crud-exp
+spec:
+  replicas: 3
+  selector:
+	matchLabels:
+      		deploy: springboot-k8s
+   template:
+	metadata:
+      		labels:
+		   app: springboot-k8s
+	spec:
+		containers:
+		       - name: springboot-k8-crud
+         		 image: springboot-k8-crud
+         		 ports:
+          		   - containerPort: 8084
+
